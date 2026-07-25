@@ -76,3 +76,15 @@ Datadog
 CloudWatch
 
 Grafana
+
+-----
+
+PR Rules
+
+feat: add authentication architecture
+
+refactor: separate services from integrations
+
+chore: regenerate Android native project
+
+feat: add RevenueCat integration

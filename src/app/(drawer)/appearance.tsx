@@ -1,5 +1,5 @@
+import { useAuth } from '@/hooks/useAuth';
 import { Text, View } from 'react-native';
-import { useAuth } from '../../hooks/useAuth';
 
 
 export default function AppearanceScreen() {

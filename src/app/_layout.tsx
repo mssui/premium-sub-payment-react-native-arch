@@ -1,10 +1,10 @@
 import "../../global.css";
 
+import { AuthProvider } from "@/contexts/AuthContext";
 import { Stack, useRouter, useSegments } from "expo-router";
 import { useEffect } from "react";
-import { AuthProvider } from "../contexts/AuthContext";
 
-import { useAuth } from "../hooks/useAuth";
+import { useAuth } from "@/hooks/useAuth";
 
 function AuthGate() {
   const { user, loading } = useAuth();

@@ -1,4 +1,4 @@
-import { auth } from "../firebase/config";
+import { auth } from "@/app/integrations/firebase/config";
 
 const API_URL = "http://localhost:3001";
 

@@ -1,5 +1,5 @@
+import { apiFetch } from '@/services/api';
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithCredential, signInWithEmailAndPassword, signOut, } from 'firebase/auth';
-import { apiFetch } from '../services/api';
 import app from './config';
 
 const auth = getAuth(app);

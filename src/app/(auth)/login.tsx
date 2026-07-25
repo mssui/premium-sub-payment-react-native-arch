@@ -1,11 +1,11 @@
+import { googleAuthConfig } from "@/integrations/firebase/config";
 import * as AuthSession from "expo-auth-session";
 import * as Google from "expo-auth-session/providers/google";
 import { router } from "expo-router";
 import * as WebBrowser from "expo-web-browser";
 import { useEffect, useState } from 'react';
 import { Button, Text, TextInput, View } from 'react-native';
-import { completeGoogleLogin, login } from "../../firebase/auth";
-
+import { completeGoogleLogin, login } from "../../app/integrations/firebase/auth";
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -31,7 +31,7 @@ export default function LoginScreen({ navigation }) {
   const [request, response, promptAsync] =
     Google.useIdTokenAuthRequest({
       clientId:
-        "79146025753-06fk8m40lkode74rvffupc92vesedbv3.apps.googleusercontent.com",
+        googleAuthConfig,
       redirectUri,
     });
 

@@ -5,10 +5,12 @@ node_modules/
 
 # Expo
 .env
+.env.*
 .expo/
 dist/
 web-build/
 expo-env.d.ts
+
 
 # Native
 .kotlin/
@@ -45,3 +47,4 @@ example
 
 /src/generated/prisma
 firebase-service-account.json
+android/app/google-services.json
