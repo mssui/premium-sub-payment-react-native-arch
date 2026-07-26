@@ -7,7 +7,7 @@ import {
 import {
     logout,
     subscribeToAuthChanges,
-} from "../app/integrations/firebase/auth";
+} from "../integrations/firebase/auth";
 
 type AuthContextType = {
     user: User | null;

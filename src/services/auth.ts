@@ -1,4 +1,4 @@
-import * as firebaseAuth from "../app/integrations/firebase/auth";
+import * as firebaseAuth from "../integrations/firebase/auth";
 
 export async function login(
   email: string,
