@@ -16,7 +16,7 @@ export default function SignupScreen({ navigation }) {
   };
 
   return (
-    <View style={{ padding: 20 }}>
+    <View style={{ padding: 50 }}>
       <TextInput placeholder="Email" onChangeText={setEmail} />
       <TextInput placeholder="Password" secureTextEntry onChangeText={setPassword} />
 

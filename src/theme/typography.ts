@@ -1,7 +1,19 @@
+export const typography = {
+    title: {
+        fontSize: 28,
+        fontWeight: "700",
+    },
 
-export const TYPOGRAPHY = {
-  title: 28,
-  heading: 22,
-  body: 16,
-  caption: 14,
+    heading: {
+        fontSize: 22,
+        fontWeight: "600",
+    },
+
+    body: {
+        fontSize: 16,
+    },
+
+    caption: {
+        fontSize: 13,
+    },
 };

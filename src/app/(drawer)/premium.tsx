@@ -1,9 +1,8 @@
 import { Pressable, Text, View } from 'react-native';
-import { useAuth } from '../../hooks/useAuth';
 
 
 export default function PremiumScreen() {
-    const { user } = useAuth();
+    //const { user } = useAuth();
 
     return (
         <View className="flex-1 items-center justify-center bg-white p-6">
@@ -13,12 +12,14 @@ export default function PremiumScreen() {
 
             </Text>
 
-            <ul className="list-disc">
-                <li>✓ AI Assistant</li>
-                <li>✓ Cloud Sync</li>
-                <li>✓ Unlimited Projects</li>
-                <li>✓ Future Features</li>
-            </ul>
+            {/* <Text className="mt-6 text-2xl font-bold">
+                <ul className="list-disc">
+                    <li>✓ AI Assistant</li>
+                    <li>✓ Cloud Sync</li>
+                    <li>✓ Unlimited Projects</li>
+                    <li>✓ Future Features</li>
+                </ul>
+            </Text> */}
 
             <Text className="mt-6 text-2xl font-bold">
                 Current Plan: Free

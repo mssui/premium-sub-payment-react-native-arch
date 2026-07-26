@@ -1,18 +1,12 @@
-export const COLORS = {
-  primary: "#2563EB",
-  primaryDark: "#1D4ED8",
-
-  background: "#F8FAFC",
-  surface: "#FFFFFF",
-
-  text: "#111827",
-  textSecondary: "#6B7280",
-
-  border: "#E5E7EB",
-
-  success: "#22C55E",
-  warning: "#F59E0B",
-  danger: "#EF4444",
-
-  premium: "#F59E0B",
-};
+export interface ThemeColors {
+    primary: string;
+    background: string;
+    surface: string;
+    text: string;
+    textSecondary: string;
+    border: string;
+    success: string;
+    warning: string;
+    danger: string;
+    premium: string;
+}
