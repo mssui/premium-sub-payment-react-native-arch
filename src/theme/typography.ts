@@ -1,3 +1,5 @@
+import { TextStyle } from "react-native";
+
 export const typography = {
     title: {
         fontSize: 28,
@@ -16,4 +18,9 @@ export const typography = {
     caption: {
         fontSize: 13,
     },
-};
+
+    button: {
+        fontSize: 16,
+        fontWeight: "600",
+    },
+} satisfies Record<string, TextStyle>;

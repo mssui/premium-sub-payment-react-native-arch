@@ -1,5 +1,6 @@
+import { Button } from '@/components/inputs';
+import { useAuth } from '@/hooks/useAuth';
 import { Text, View } from 'react-native';
-import { useAuth } from '../../hooks/useAuth';
 
 
 export default function NotificationsScreen() {
@@ -11,6 +12,18 @@ export default function NotificationsScreen() {
             <Text className="mt-2 text-gray-500">
                 NOTIFICATIONS PAGE
             </Text>
+
+            <Button variant="primary">
+                Stuff 1
+            </Button>
+
+            <Button variant="secondary">
+                Stuff 2
+            </Button>
+
+            <Button variant="danger">
+                Stuff 3
+            </Button>
 
         </View>
     );
