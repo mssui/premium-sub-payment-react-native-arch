@@ -79,12 +79,51 @@ Grafana
 
 -----
 
-PR Rules
+### PR Title Rules
 
-feat: add authentication architecture
+feat(button): create reusable button component
 
-refactor: separate services from integrations
+refactor(theme): introduce shared theme object
 
-chore: regenerate Android native project
+feat(theme): add light and dark palettes
 
-feat: add RevenueCat integration
+refactor(api): move fetch client into api layer
+
+fix(auth): handle expired Firebase token
+
+### PR Branch Rules
+
+feature/theme-provider
+feature/api-layer
+feature/react-query
+feature/tour-list
+
+fix/google-login
+fix/login-crash
+
+refactor/auth-service
+refactor/button-component
+
+docs/readme
+docs/architecture
+
+
+### ROADMAP
+
+Engineering Workflow
+✅ Protect main
+✅ PR template
+⬜ Add ci.yml
+⬜ Adopt Conventional Commits
+⬜ Merge your first PR
+Architecture 
+⬜ API layer
+⬜ Error handling strategy
+⬜ Logging
+⬜ React Query integration
+Design System 
+⬜ ThemeProvider
+⬜ Card
+⬜ TextField
+⬜ Badge
+⬜ Modal
