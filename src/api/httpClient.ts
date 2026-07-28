@@ -2,8 +2,8 @@ import { env } from "@/config/env";
 import { auth } from "@/integrations/firebase/config";
 
 async function request<T>(
-    endpoint: string,
-    options: RequestInit = {}
+  endpoint: string,
+  options: RequestInit = {}
 ): Promise<T> {
   const user = auth.currentUser;
   const token = await user?.getIdToken();
@@ -26,34 +26,34 @@ async function request<T>(
 
 export const http = {
 
-    get<T>(endpoint: string) {
-        return request<T>(endpoint);
-    },
+  get<T>(endpoint: string) {
+    return request<T>(endpoint);
+  },
 
-    post<T>(endpoint: string, body?: unknown) {
-        return request<T>(endpoint, {
-            method: "POST",
-            body: JSON.stringify(body),
-        });
-    },
+  post<T>(endpoint: string, body?: unknown) {
+    return request<T>(endpoint, {
+      method: "POST",
+      body: body !== undefined ? JSON.stringify(body) : undefined,
+    });
+  },
 
-    put<T>(endpoint: string, body?: unknown) {
-        return request<T>(endpoint, {
-            method: "PUT",
-            body: JSON.stringify(body),
-        });
-    },
+  put<T>(endpoint: string, body?: unknown) {
+    return request<T>(endpoint, {
+      method: "PUT",
+      body: body !== undefined ? JSON.stringify(body) : undefined,
+    });
+  },
 
-    patch<T>(endpoint: string, body?: unknown) {
-        return request<T>(endpoint, {
-            method: "PATCH",
-            body: JSON.stringify(body),
-        });
-    },
+  patch<T>(endpoint: string, body?: unknown) {
+    return request<T>(endpoint, {
+      method: "PATCH",
+      body: body !== undefined ? JSON.stringify(body) : undefined,
+    });
+  },
 
-    delete<T>(endpoint: string) {
-        return request<T>(endpoint, {
-            method: "DELETE",
-        });
-    },
+  delete<T>(endpoint: string) {
+    return request<T>(endpoint, {
+      method: "DELETE",
+    });
+  },
 };
