@@ -1,18 +1,14 @@
+import { env } from "@/config/env";
 import { auth } from "@/integrations/firebase/config";
 
-const API_URL = "http://localhost:3001";
-
-export async function apiFetch(
-  endpoint: string,
-  options: RequestInit = {}
-) {
+async function request<T>(
+    endpoint: string,
+    options: RequestInit = {}
+): Promise<T> {
   const user = auth.currentUser;
-  console.log("Current user:", user?.email);
-
   const token = await user?.getIdToken();
-  console.log("Token exists:", !!token);
 
-  const response = await fetch(`${API_URL}${endpoint}`, {
+  const response = await fetch(`${env.apiUrl}${endpoint}`, {
     ...options,
     headers: {
       "Content-Type": "application/json",
@@ -27,3 +23,37 @@ export async function apiFetch(
 
   return response.json();
 }
+
+export const http = {
+
+    get<T>(endpoint: string) {
+        return request<T>(endpoint);
+    },
+
+    post<T>(endpoint: string, body?: unknown) {
+        return request<T>(endpoint, {
+            method: "POST",
+            body: JSON.stringify(body),
+        });
+    },
+
+    put<T>(endpoint: string, body?: unknown) {
+        return request<T>(endpoint, {
+            method: "PUT",
+            body: JSON.stringify(body),
+        });
+    },
+
+    patch<T>(endpoint: string, body?: unknown) {
+        return request<T>(endpoint, {
+            method: "PATCH",
+            body: JSON.stringify(body),
+        });
+    },
+
+    delete<T>(endpoint: string) {
+        return request<T>(endpoint, {
+            method: "DELETE",
+        });
+    },
+};
