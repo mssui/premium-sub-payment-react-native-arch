@@ -1,3 +1,4 @@
+import { ApiError } from "@/api/ApiError";
 import { env } from "@/config/env";
 import { auth } from "@/integrations/firebase/config";
 
@@ -18,8 +19,14 @@ async function request<T>(
   });
 
   if (!response.ok) {
-    throw new Error(await response.text());
-  }
+    const body = await response.json().catch(() => undefined);
+
+    throw new ApiError(
+        response.status,
+        body?.message ?? response.statusText,
+        body,
+    );
+}
 
   return response.json();
 }
