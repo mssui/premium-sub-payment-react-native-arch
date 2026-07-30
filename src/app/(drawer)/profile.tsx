@@ -2,22 +2,30 @@ import { Avatar } from "@/components/display";
 import { Text } from 'react-native';
 
 import { Card, Screen } from '@/components/layout';
-
 import { useAuth } from "@/hooks/useAuth";
 
+import { useCurrentUser } from "@/hooks/queries/useCurrentUser";
+
 export default function ProfileScreen() {
-  const { user } = useAuth();
+
+  const {
+    data: user,
+    isLoading,
+    error,
+} = useCurrentUser();
+
+  const { firebaseUser } = useAuth();
 
   return (
     <Screen>
 
-      {user?.photoURL && (
-        <Avatar user={user} />
+      {firebaseUser?.photoURL && (
+        <Avatar user={firebaseUser} />
       ) || null}
 
       <Card>
         <Text className="text-xl font-bold">
-          {user?.displayName ?? "Unknown User"}
+          {firebaseUser?.displayName ?? "Unknown User"}
         </Text>
 
         <Text>
@@ -25,7 +33,7 @@ export default function ProfileScreen() {
         </Text>
 
         <Text>
-          {user?.providerData[0]?.providerId}
+          {firebaseUser?.providerData[0]?.providerId}
         </Text>
       </Card>
 
