@@ -127,3 +127,14 @@ Design System
 ⬜ TextField
 ⬜ Badge
 ⬜ Modal
+
+## Notes
+
+| Status | Meaning                | UI Action                     |
+| ------ | ---------------------- | ----------------------------- |
+| 400    | Invalid request        | Show validation message       |
+| 401    | Authentication expired | Log out / ask user to sign in |
+| 403    | User has no permission | Show "Access denied"          |
+| 404    | Resource missing       | Empty state / not found       |
+| 409    | Conflict               | Inform the user               |
+| 500    | Backend problem        | Generic error screen          |
