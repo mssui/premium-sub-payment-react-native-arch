@@ -1,4 +1,3 @@
-import { apiFetch } from '@/services/api';
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithCredential, signInWithEmailAndPassword, signOut, } from 'firebase/auth';
 import app from './config';
 
@@ -40,8 +39,5 @@ export const subscribeToAuthChanges = (callback) => {
   return onAuthStateChanged(auth, callback);
 };
 
-export function getMe() {
-  return apiFetch("/me");
-}
 
 
