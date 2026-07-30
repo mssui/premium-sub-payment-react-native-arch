@@ -10,7 +10,7 @@ import {
 } from "../integrations/firebase/auth";
 
 type AuthContextType = {
-    user: User | null;
+    firebaseUser: User | null;
     loading: boolean;
     logout: () => Promise<void>;
 };
@@ -23,19 +23,19 @@ export const AuthProvider = ({
 }: {
     children: React.ReactNode;
 }) => {
-    const [user, setUser] = useState<User | null>(null);
+    const [firebaseUser, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         console.log("AuthProvider mounted");
 
         const unsubscribe =
-            subscribeToAuthChanges((user) => {
+            subscribeToAuthChanges((firebaseUser) => {
 
                 console.log("Firebase auth changed");
-                console.log("User:", user?.email);
+                console.log("firebaseUser:", firebaseUser?.email);
 
-                setUser(user);
+                setUser(firebaseUser);
                 setLoading(false);
             });
 
@@ -45,7 +45,7 @@ export const AuthProvider = ({
     return (
         <AuthContext.Provider
             value={{
-                user,
+                firebaseUser,
                 loading,
                 logout,
             }}
