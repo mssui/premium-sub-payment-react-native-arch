@@ -1,7 +1,12 @@
 import "../../global.css";
 
 import { AuthProvider } from "@/contexts/AuthContext";
+
+import { QueryProvider } from "@/providers/QueryProvider";
 import { Stack, useRouter, useSegments } from "expo-router";
+
+
+
 import { useEffect } from "react";
 
 import { useAuth } from "@/hooks/useAuth";
@@ -35,8 +40,10 @@ function AuthGate() {
 
 export default function RootLayout() {
   return (
+     <QueryProvider>
     <AuthProvider>
-      <AuthGate />
+        <AuthGate />
     </AuthProvider>
+     </QueryProvider>
   );
 }
