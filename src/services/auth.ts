@@ -28,6 +28,6 @@ export function subscribeToAuthChanges(
   );
 }
 
-export async function getMe() {
-  return firebaseAuth.getMe();
-}
+// export async function getMe() {
+//   return firebaseAuth.getMe();
+// }
