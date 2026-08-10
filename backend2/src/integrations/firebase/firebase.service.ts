@@ -1,5 +1,5 @@
 import {
-  Injectable
+  Injectable, OnModuleInit
 } from '@nestjs/common';
 
 import { ConfigService } from '@nestjs/config';
@@ -8,12 +8,12 @@ import { cert, getApps, initializeApp } from "firebase-admin/app";
 import { getAuth } from "firebase-admin/auth";
 
 @Injectable()
-export class FirebaseService {
-
+export class FirebaseService implements OnModuleInit {
   constructor(
     private readonly config: ConfigService,
-  ) {
+  ) { }
 
+  onModuleInit() {
     if (!getApps().length) {
       initializeApp({
         credential: cert({
@@ -25,15 +25,11 @@ export class FirebaseService {
         }),
       });
     }
-
-
-
   }
 
-  private readonly auth = getAuth();
-  
   async verifyIdToken(token: string) {
-    return this.auth.verifyIdToken(token);
+    return getAuth().verifyIdToken(token);
   }
+  
 
 }

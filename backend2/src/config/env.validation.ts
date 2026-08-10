@@ -7,7 +7,7 @@ export const envSchema = z.object({
 
   FIREBASE_PROJECT_ID: z.string(),
 
-  FIREBASE_CLIENT_EMAIL: z.string().email(),
+  FIREBASE_CLIENT_EMAIL: z.string().min(1),
 
   FIREBASE_PRIVATE_KEY: z.string(),
 });
