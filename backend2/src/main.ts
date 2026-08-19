@@ -9,6 +9,7 @@ async function bootstrap() {
     .setTitle("RN Subscription API")
     .setDescription("Backend API for RN Subscription App")
     .setVersion("1.0")
+    .addBearerAuth()
     .build();
 
   const document =

@@ -26,12 +26,10 @@ export default function LoginScreen({ navigation }) {
 
   const redirectUri = AuthSession.makeRedirectUri();
 
-  console.log("Redirect URI:", redirectUri);
-
   const [request, response, promptAsync] =
     Google.useIdTokenAuthRequest({
       clientId:
-        googleAuthConfig,
+        googleAuthConfig.clientId,
       redirectUri,
     });
 
@@ -40,10 +38,6 @@ export default function LoginScreen({ navigation }) {
       if (response?.type !== "success") {
         return;
       }
-
-      console.log("Response type:", response?.type);
-      console.log("Response params:", response?.params);
-      console.log("Response error:", response?.error);
 
       const idToken = response.params?.id_token;
 
@@ -58,10 +52,8 @@ export default function LoginScreen({ navigation }) {
             idToken
           );
 
-        console.log(
-          "Firebase user:",
-          userCredential.user.email
-        );
+          const test = await userCredential.user.getIdToken();
+
       } catch (error) {
         console.error(
           "Firebase sign-in failed:",
