@@ -33,7 +33,7 @@ export const AuthProvider = ({
             subscribeToAuthChanges((firebaseUser) => {
 
                 console.log("Firebase auth changed");
-                console.log("firebaseUser:", firebaseUser?.email);
+                console.log("firebaseUser:", firebaseUser);
 
                 setUser(firebaseUser);
                 setLoading(false);

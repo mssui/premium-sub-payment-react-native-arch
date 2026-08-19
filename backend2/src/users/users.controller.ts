@@ -5,17 +5,26 @@ import { CurrentUser } from "@/auth/decorators/current-user.decorator";
 import { FirebaseGuard } from "@/auth/guards/firebase.guard";
 
 import type { AuthenticatedUser } from "@/authenticated-user.interface";
+import { UserService } from "./users.service";
 
 
 @ApiTags("Users")
 @ApiBearerAuth()
 @Controller("users")
 export class UsersController {
+  constructor(private userService: UserService) {}
   @Get("me")
   @UseGuards(FirebaseGuard)
-  getMe(
+  async getMe(
     @CurrentUser() user: AuthenticatedUser,
   ) {
-    return user;
+    let userData = await this.userService.getCurrentUser(user);
+
+    if (!userData) {
+      //"User not found, creating new user in DB"
+      userData = await this.userService.createNewUser(user);
+    }
+
+    return userData;
   }
 }
